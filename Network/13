@@ -1,1 +1,1 @@
-whois 192.168.0.255 | grep organisation: | awk '{print $2}'
+whois 10.11.12.21 | grep  OrgName
