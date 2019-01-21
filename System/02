@@ -1,1 +1,3 @@
-hostname [name]
+echo "Set a new system name : "
+read NameSystem
+hostname $NameSystem
