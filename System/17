@@ -1,1 +1,5 @@
-ssh username@adress_server
+echo "username to connect :"
+read UserName
+echo "adress of server to connect :"
+read ServerAdress
+ssh $UserName@$ServerAdress

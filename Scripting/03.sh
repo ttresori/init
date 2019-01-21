@@ -1,5 +1,5 @@
 #!/bin/bash
-heure=0 ; minutes=0 ; maxheure=23 ; maxminutes=59 ; valid=1
+heure=0 ; minutes=0 ; maxheure=23 ; maxminutes=59 ; valid=1 ; shell_env="test"
 while [ $valid -ne 2 ]
 do
     echo "Choisis une heure d'execution :" 
@@ -53,7 +53,11 @@ case $yn in
 esac
 echo "commande a executer"
 read command
-echo ""$minutes" "$heure"   * * * $USER $command" >> /etc/crontab
-crontab /etc/crontab
+shell_env=`env | grep SHELL | cut -d "=" -f 2`
+echo $command >> /home/$USER/Documents/init/Scripting/.command_to_exec.sh
+chmod +x .command_to_exec.sh
+echo ""$minutes" "$heure"   * * * exec $shell_env /home/$USER/Documents/init/Scripting/.command_to_exec.sh" >> .my_crontab
+crontab .my_crontab
+rm .my_crontab
 /etc/init.d/cron reload
 /etc/init.d/cron restart
