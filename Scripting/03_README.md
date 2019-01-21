@@ -1,0 +1,1 @@
+Exec a command all days at time u choose
