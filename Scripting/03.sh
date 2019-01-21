@@ -1,5 +1,5 @@
 #!/bin/bash
-heure=0 ; minutes=0 ; maxheure=23 ; maxminutes=59 ; valid=1 ; shell_env="test"
+heure=0 ; minutes=0 ; maxheure=23 ; maxminutes=59 ; valid=1 ; shell_env="/bin/bash"
 while [ $valid -ne 2 ]
 do
     echo "Choisis une heure d'execution :" 
